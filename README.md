@@ -29,3 +29,47 @@
 - Applied Standard Scaler to ensure uniformity across numerical features, centering them around zero with a standard deviation of one, which is essential for model training.
 
 The dataset has been cleaned, transformed, and enriched with engineered features. This comprehensive preprocessing lays the groundwork for further analysis, including Exploratory Data Analysis (EDA), which will provide insights into transaction behaviors and highlight patterns relevant to fraud detection.
+
+
+
+
+### Model Selection and Algorithm Testing
+
+Selected models: Logistic Regression,Decision Tree,Random Forest,Support Vector Machine (SVM), 
+
+**Performance of Selected Models:**
+
+**Logistic Regression**
+Accuracy: 0.9939
+Precision: 0.0
+Recall: 0.0
+F1-Score: 0.0
+
+**Conclusion:** Although the accuracy was fairly high (99.39%), the model failed to identify any positive cases correctly, as shown by the precision, recall, and F1-score all being 0. This makes it an unreliable choice.
+
+**Decision Tree**
+Accuracy: 0.9970
+Precision: 0.7246
+Recall: 0.7595
+F1-Score: 0.7416
+
+**Conclusion:** The Decision Tree had good accuracy (99.70%) and decent precision (72.46%) and recall (75.95%). However, it was not as precise as Random Forest, meaning it made more incorrect positive predictions, making it a slightly less accurate option.
+
+**Random Forest**
+Accuracy: 0.9982
+Precision: 0.9318
+Recall: 0.7290
+F1-Score: 0.8181
+
+**Conclusion:** The Random Forest model showed the best results, with the highest accuracy (99.82%) and strong precision (93.18%) and F1-score (81.81%). It made fewer mistakes and gave the most reliable predictions, making it the best choice.
+
+**Support Vector Machine (SVM) (Tuned)**
+Accuracy: 0.9936
+Precision: 0.0
+Recall: 0.0
+
+**Conclusion:** Despite the high accuracy (99.36%), the SVM model performed poorly in precision, recall, and F1-score (all 0). Like Logistic Regression, it failed to correctly identify positive cases, which makes it unsuitable for this task.
+
+
+### Final Model Selection
+We **selected the Random Forest model as the best** because it had the highest accuracy (99.82%) and performed well across all evaluation metrics. Its precision (93.18%) and F1-score (81.81%) show that it makes more correct predictions and handles both positive and negative outcomes better than the other models.

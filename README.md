@@ -67,41 +67,52 @@ A pie chart visualizing the proportion of fraudulent transactions across differe
 
 ## Model Selection and Algorithm Testing
 
-Selected models: Logistic Regression,Decision Tree,Random Forest,Support Vector Machine (SVM), 
+Selected models: Logistic Regression,Decision Tree,Random Forest,Support Vector Machine (SVM).
 
 **Performance of Selected Models:**
 
-**Logistic Regression**
-Accuracy: 0.9939
-Precision: 0.0
-Recall: 0.0
-F1-Score: 0.0
+**1)Logistic Regression**
+* Training Set: Accuracy: 0.8833, Precision: 0.9368, Recall: 0.7393, F1-Score: 0.8264
+* Validation Set: Accuracy: 0.8835, Precision: 0.9350, Recall: 0.7451, F1-Score: 0.8293
+* Test Set: Accuracy: 0.8782, Precision: 0.9159, Recall: 0.7375, F1-Score: 0.8171
 
-**Conclusion:** Although the accuracy was fairly high (99.39%), the model failed to identify any positive cases correctly, as shown by the precision, recall, and F1-score all being 0. This makes it an unreliable choice.
+**Conclusion:** The Logistic Regression model demonstrates stable performance across all datasets, with accuracy ranging from 87.82% to 88.35%. Precision remains consistently high (~91-94%), indicating the model effectively identifies positive cases. However, recall (~74%) is slightly lower, suggesting some positive cases are missed. 
 
-**Decision Tree**
-Accuracy: 0.9970
-Precision: 0.7246
-Recall: 0.7595
-F1-Score: 0.7416
+**2)Decision Tree**
+* Training Set: Accuracy: 1.0000, Precision: 1.0000, Recall: 1.0000, F1-Score: 1.0000
+* Validation Set: Accuracy: 0.9594, Precision: 0.9444, Recall: 0.9490, F1-Score: 0.9467
+* Test Set: Accuracy: 0.9541, Precision: 0.9337, Recall: 0.9424, F1-Score: 0.9381
+* Confusion Matrix:
+[[1942   79]
+ [  68 1113]]
 
-**Conclusion:** The Decision Tree had good accuracy (99.70%) and decent precision (72.46%) and recall (75.95%). However, it was not as precise as Random Forest, meaning it made more incorrect positive predictions, making it a slightly less accurate option.
-
-**Random Forest**
-Accuracy: 0.9982
-Precision: 0.9318
-Recall: 0.7290
-F1-Score: 0.8181
-
-**Conclusion:** The Random Forest model showed the best results, with the highest accuracy (99.82%) and strong precision (93.18%) and F1-score (81.81%). It made fewer mistakes and gave the most reliable predictions, making it the best choice.
-
-**Support Vector Machine (SVM) (Tuned)**
-Accuracy: 0.9936
-Precision: 0.0
-Recall: 0.0
-
-**Conclusion:** Despite the high accuracy (99.36%), the SVM model performed poorly in precision, recall, and F1-score (all 0). Like Logistic Regression, it failed to correctly identify positive cases, which makes it unsuitable for this task.
+Classification Report: 
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+|   0   |   0.97    |  0.96  |   0.96   |  2021   |
+|   1   |   0.93    |  0.94  |   0.94   |  1181   |
+|       |           |        |          |         |
+| **Accuracy**     |           |        |   0.95   |  3202   |
+| **Macro Avg**    |   0.95    |  0.95  |   0.95   |  3202   |
+| **Weighted Avg** |   0.95    |  0.95  |   0.95   |  3202   |
 
 
-### Final Model Selection
-We **selected the Random Forest model as the best** because it had the highest accuracy (99.82%) and performed well across all evaluation metrics. Its precision (93.18%) and F1-score (81.81%) show that it makes more correct predictions and handles both positive and negative outcomes better than the other models.
+**Conclusion:** The Decision Tree model performs exceptionally, achieving perfect accuracy on the training set and high accuracy (~95%) on the validation and test sets. Its precision (~93-97%), recall (~94-96%), and F1-scores (~94-96%) indicate strong classification performance with minimal misclassification. This balance between fitting the training data and generalizing well on unseen data makes it one of the best-performing models.
+
+**3)Random Forest**
+ * Training Set: Accuracy: 0.9783, Precision: 0.9746, Recall: 0.9676, F1-Score: 0.9711
+ * Validation Set: Accuracy: 0.9535, Precision: 0.9464, Recall: 0.9301, F1-Score: 0.9382
+ * Test Set: Accuracy: 0.9528, Precision: 0.9455, Recall: 0.9255, F1-Score: 0.9354
+
+**Conclusion:** The Random Forest model shows strong performance, achieving 97.83% accuracy on the training set and approximately 95.3% on both the validation and test sets. Its precision ranges from 94% to 97%, while recall is between 93% and 96%, resulting in F1-scores around 93% to 97%.However,The Decision Tree outperforms the Random Forest in training accuracy, achieving a perfect 100%, indicating it can capture complex patterns in the training data more effectively.
+
+**4)Support Vector Machine (SVM)**
+* Training Set: Accuracy: 0.8694, Precision: 0.9605, Recall: 0.6805, F1-Score: 0.7966
+* Validation Set: Accuracy: 0.8694, Precision: 0.9597, Recall: 0.6850, F1-Score: 0.7994
+* Test Set: Accuracy: 0.8729, Precision: 0.9521, Recall: 0.6901, F1-Score: 0.8002
+
+**Conclusion:** The tuned Support Vector Machine (SVM) model achieves consistent accuracy (~86.9% on training and validation sets, 87.29% on the test set). Precision is high (~95-96%), while recall is lower (~68-69%), resulting in F1-scores around 79-80%. Overall, the model demonstrates solid performance but could improve in capturing more positive cases.
+
+
+### Final Model Selection:
+After comparing four models—Logistic Regression, Decision Tree, Random Forest, and Tuned Support Vector Machine (SVM)—we found that ***Decision Tree*** model is the best performer. It achieved perfect accuracy on the training set while maintaining high accuracy, precision, recall, and F1-scores on both validation and test sets. Overall, the Decision Tree's effective balance between fitting the data and generalization makes it the most reliable model for this dataset.

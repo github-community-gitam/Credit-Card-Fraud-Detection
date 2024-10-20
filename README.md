@@ -71,45 +71,48 @@ Selected models: Logistic Regression,Decision Tree,Random Forest,Support Vector 
 
 **Performance of Selected Models:**
 
-**Logistic Regression**
-Training Set: Accuracy: 0.8833, Precision: 0.9368, Recall: 0.7393, F1-Score: 0.8264
-Validation Set: Accuracy: 0.8835, Precision: 0.9350, Recall: 0.7451, F1-Score: 0.8293
-Test Set: Accuracy: 0.8782, Precision: 0.9159, Recall: 0.7375, F1-Score: 0.8171
+**1)Logistic Regression**
+* Training Set: Accuracy: 0.8833, Precision: 0.9368, Recall: 0.7393, F1-Score: 0.8264
+* Validation Set: Accuracy: 0.8835, Precision: 0.9350, Recall: 0.7451, F1-Score: 0.8293
+* Test Set: Accuracy: 0.8782, Precision: 0.9159, Recall: 0.7375, F1-Score: 0.8171
 
 **Conclusion:** The Logistic Regression model demonstrates stable performance across all datasets, with accuracy ranging from 87.82% to 88.35%. Precision remains consistently high (~91-94%), indicating the model effectively identifies positive cases. However, recall (~74%) is slightly lower, suggesting some positive cases are missed. 
 
-**Decision Tree**
-Decision Tree - Training Set: Accuracy: 1.0000, Precision: 1.0000, Recall: 1.0000, F1-Score: 1.0000
-Decision Tree - Validation Set: Accuracy: 0.9594, Precision: 0.9444, Recall: 0.9490, F1-Score: 0.9467
-Decision Tree - Test Set: Accuracy: 0.9541, Precision: 0.9337, Recall: 0.9424, F1-Score: 0.9381
-Confusion Matrix:
+**2)Decision Tree**
+* Training Set: Accuracy: 1.0000, Precision: 1.0000, Recall: 1.0000, F1-Score: 1.0000
+* Validation Set: Accuracy: 0.9594, Precision: 0.9444, Recall: 0.9490, F1-Score: 0.9467
+* Test Set: Accuracy: 0.9541, Precision: 0.9337, Recall: 0.9424, F1-Score: 0.9381
+* Confusion Matrix:
 [[1942   79]
  [  68 1113]]
-Classification Report:
-              precision    recall  f1-score   support
 
-           0       0.97      0.96      0.96      2021
-           1       0.93      0.94      0.94      1181
+Classification Report: 
+| Class | Precision | Recall | F1-Score | Support |
+|-------|-----------|--------|----------|---------|
+|   0   |   0.97    |  0.96  |   0.96   |  2021   |
+|   1   |   0.93    |  0.94  |   0.94   |  1181   |
+|       |           |        |          |         |
+| **Accuracy**     |           |        |   0.95   |  3202   |
+| **Macro Avg**    |   0.95    |  0.95  |   0.95   |  3202   |
+| **Weighted Avg** |   0.95    |  0.95  |   0.95   |  3202   |
 
-    accuracy                           0.95      3202
-   macro avg       0.95      0.95      0.95      3202
-weighted avg       0.95      0.95      0.95      3202
 
 **Conclusion:** The Decision Tree model performs exceptionally, achieving perfect accuracy on the training set and high accuracy (~95%) on the validation and test sets. Its precision (~93-97%), recall (~94-96%), and F1-scores (~94-96%) indicate strong classification performance with minimal misclassification. This balance between fitting the training data and generalizing well on unseen data makes it one of the best-performing models.
 
-**Random Forest**
- Training Set: Accuracy: 0.9783, Precision: 0.9746, Recall: 0.9676, F1-Score: 0.9711
- Validation Set: Accuracy: 0.9535, Precision: 0.9464, Recall: 0.9301, F1-Score: 0.9382
- Test Set: Accuracy: 0.9528, Precision: 0.9455, Recall: 0.9255, F1-Score: 0.9354
+**3)Random Forest**
+ * Training Set: Accuracy: 0.9783, Precision: 0.9746, Recall: 0.9676, F1-Score: 0.9711
+ * Validation Set: Accuracy: 0.9535, Precision: 0.9464, Recall: 0.9301, F1-Score: 0.9382
+ * Test Set: Accuracy: 0.9528, Precision: 0.9455, Recall: 0.9255, F1-Score: 0.9354
 
 **Conclusion:** The Random Forest model shows strong performance, achieving 97.83% accuracy on the training set and approximately 95.3% on both the validation and test sets. Its precision ranges from 94% to 97%, while recall is between 93% and 96%, resulting in F1-scores around 93% to 97%.However,The Decision Tree outperforms the Random Forest in training accuracy, achieving a perfect 100%, indicating it can capture complex patterns in the training data more effectively.
-**Support Vector Machine (SVM) (Tuned)**
-Training Set: Accuracy: 0.8694, Precision: 0.9605, Recall: 0.6805, F1-Score: 0.7966
-Validation Set: Accuracy: 0.8694, Precision: 0.9597, Recall: 0.6850, F1-Score: 0.7994
-Test Set: Accuracy: 0.8729, Precision: 0.9521, Recall: 0.6901, F1-Score: 0.8002
+
+**4)Support Vector Machine (SVM)**
+* Training Set: Accuracy: 0.8694, Precision: 0.9605, Recall: 0.6805, F1-Score: 0.7966
+* Validation Set: Accuracy: 0.8694, Precision: 0.9597, Recall: 0.6850, F1-Score: 0.7994
+* Test Set: Accuracy: 0.8729, Precision: 0.9521, Recall: 0.6901, F1-Score: 0.8002
 
 **Conclusion:** The tuned Support Vector Machine (SVM) model achieves consistent accuracy (~86.9% on training and validation sets, 87.29% on the test set). Precision is high (~95-96%), while recall is lower (~68-69%), resulting in F1-scores around 79-80%. Overall, the model demonstrates solid performance but could improve in capturing more positive cases.
 
 
 ### Final Model Selection:
-After comparing four models—Logistic Regression, Decision Tree, Random Forest, and Tuned Support Vector Machine (SVM)—we found that the ***Decision Tree*** is the best performer. It achieved perfect accuracy on the training set while maintaining high accuracy, precision, recall, and F1-scores on both validation and test sets. Overall, the Decision Tree's effective balance between fitting the data and generalization makes it the most reliable model for this dataset.
+After comparing four models—Logistic Regression, Decision Tree, Random Forest, and Tuned Support Vector Machine (SVM)—we found that ***Decision Tree*** model is the best performer. It achieved perfect accuracy on the training set while maintaining high accuracy, precision, recall, and F1-scores on both validation and test sets. Overall, the Decision Tree's effective balance between fitting the data and generalization makes it the most reliable model for this dataset.

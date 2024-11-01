@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/home.css">
+    <title>Home</title>
+</head>
+<body>
+    <image src="/static/new-gif.gif" id="animation1"></image>
+    <image src="/static/new-gif.gif" id="animation2"></image>
+    {% if not logged_in %}
+        <div class="login-signup-button">
+            <div id="login"><a href="{{url_for('login')}}">Login</a></div>
+            <div id="signup"><a href="{{url_for('signup')}}">SignUp</a></div>
+        </div>
+    {% else %}
+    <div class="user-icon" id="user-icon">
+        <span>{{username[0]}}</span>
+        <div class="dropdown-content">
+            <p>{{username}}</p>
+            <hr>
+            <div class="logout-button"><a href="{{url_for('logout')}}">Logout</a></div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="container">
+        <div class="card" id="card1">
+            <div class="corner-box top-left"></div>
+            <div class="corner-box top-right"></div>
+            <div class="corner-box bottom-left"></div>
+            <div class="corner-box bottom-right"></div>
+            <h2>About the project</h2>
+            <p>This is an end-to-end system for detecting fraudulent credit card transactions using machine learning. Includes data preprocessing, fraud detection algorithms, and a web interface. Built with Flask for the back-end and MongoDB for data storage.</p>
+        </div>
+
+        <div class="card" id="card2">
+            <div class="corner-box top-left"></div>
+            <div class="corner-box top-right"></div>
+            <div class="corner-box bottom-left"></div>
+            <div class="corner-box bottom-right"></div>
+            <h2>Our Team</h2>
+            <p>
+                <li>Bingumalla Likith (Lead)</li>
+                <li>Yojith Sai</li>
+                <li>Mouleendra</li>
+                <li>Akshaya</li>
+                <li>Ramani</li>
+                <li>Tanmay sai</li>
+            </p>
+        </div>
+        {% if logged_in %}
+            <div id="dashboard"><a href="{{ url_for('dashboard') }}">Dashboard</a></div>
+        {% endif%}
+    </div>
+
+    <img src="/static/credit-card.png" id="bottom-left-img">
+    <img src="/static/credit-card.png" id="bottom-right-img">
+    <script>
+        const login = document.getElementById('login');
+        const signup = document.getElementById('signup');
+        login.addEventListener('mouseenter', () => {
+            signup.style.display = "none";
+        });
+        login.addEventListener('mouseleave', () => {
+            signup.style.display = "flex";
+        });
+        signup.addEventListener('mouseenter', () => {
+            login.style.display = "none";
+        });
+        signup.addEventListener('mouseleave', () => {
+            login.style.display = "flex";
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;700&display=swap");
+
+*, *:after, *:before {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Kode Mono", sans-serif;
+	background-color: #FFF2D7;
+	padding: 0;
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+input {
+	appearance: none;
+	border-radius: 0;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100vh;
+}
+
+.background {
+    width: 350px;
+    height: 350px;
+}
+.left-img {
+    position: absolute;
+    left: 5vw; 
+}
+.right-img {
+    position: absolute;
+    right: 5vw;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 400px;
+	background-color: #FFF;
+	border-radius: 10px;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+	padding: 1rem;
+	transform: scale(0.8);
+}
+
+.card-image {
+	border-radius: 8px;
+    height: 250px;
+	padding: 10px;
+	background-image: url('card-image.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	position: relative;
+	border: 1.5px solid black;
+}
+
+.card-form {
+	padding: 2rem 1.2rem 0;
+}
+
+.input {
+	display: flex;
+	flex-direction: column-reverse;
+	position: relative;
+	padding-top: 1.5rem;
+	&+.input {
+		margin-top: 1.5rem;
+	}
+}
+
+.input-label {
+	color: #8597a3;
+	position: absolute;
+	top: 1.25rem;
+	font-size: 0.9rem;
+	transition: .25s ease;
+}
+
+.input-field {
+	border: 0;
+	z-index: 1;
+	background-color: transparent;
+	border-bottom: 1.5px solid #eee; 
+	font: inherit;
+	font-size: 1rem;
+	padding: 0.2rem 0;
+	&:focus, &:valid {
+		outline: 0;
+		border-bottom-color: black;
+		&+.input-label {
+			color: black;
+			transform: translateY(-1.25rem);
+		}
+	}
+}
+
+.action {
+	margin-top: 1.5rem;
+}
+
+.action-button {
+	font: inherit;
+	font-size: 1.125rem;
+	padding: 0.75em;
+	width: 100%;
+	font-weight: 500;
+	background-color: #FFC700;
+	border-radius: 6px;
+	color: black;
+	border: 1.5px solid black;
+	transition: transform 0.2s ease;
+	&:focus {
+		outline: 0;
+	}
+    &:hover {
+        transform: scale(1.05); 
+    }
+}
+
+.card-info {
+	padding: 0.5rem;
+	text-align: center;
+	font-size: 0.875rem;
+	color: #8597a3;
+	a {
+		display: block;
+		color: #FFC700;
+		text-decoration: none;
+	}
+}
+
+.signup-link {
+    color: #FFC700;
+    text-decoration: none;
+}
+
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+#home {
+    width: 5vw;
+    height: 5vh;
+    top: 20px;
+	right: 20px;
+    padding: 2px;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    text-align: center;
+	background-color: #FFC700;
+	color: black;
+	position: absolute;
+	border: 2px solid black;
+	border-radius: 3px;
+	transition: transform 0.2s ease;
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+
+#home > a{
+	text-decoration: none;
+	color : black;
+}
+
+.popup {
+	display: none;
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	z-index: 5;
+}
+.popup-content {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	z-index: 5;
+	text-align: center;
+}

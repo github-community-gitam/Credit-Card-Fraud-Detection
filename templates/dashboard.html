@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Dashboard Form</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+<div id="home"><a href="{{ url_for('home') }}">Home</a></div>
+<div class="dashboard-container">
+    <h2>Transaction Form Dashboard</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="trans_date_trans_time">Transaction Date & Time</label>
+            <input type="datetime-local" id="trans_date_trans_time" name="trans_date_trans_time">
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" name="category" required>
+                <option value="misc_net">Miscellaneous Net</option>
+                <option value="grocery_pos">Grocery POS</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="gas_transport">Gas Transport</option>
+                <option value="misc_pos">Miscellaneous POS</option>
+                <option value="grocery_net">Grocery Net</option>
+                <option value="shopping_net">Shopping Net</option>
+                <option value="shopping_pos">Shopping POS</option>
+                <option value="food_dining">Food & Dining</option>
+                <option value="personal_care">Personal Care</option>
+                <option value="health_fitness">Health & Fitness</option>
+                <option value="travel">Travel</option>
+                <option value="kids_pets">Kids & Pets</option>
+                <option value="home">Home</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="amt">Amount</label>
+            <input type="number" id="amt" name="amt" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="F">Female</option>
+                <option value="M">Male</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="city_pop">City Population</label>
+            <input type="number" id="city_pop" name="city_pop" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob">
+        </div>
+        <div class="form-group">
+            <label for="trans_year">Transaction Year</label>
+            <select id="trans_year" name="trans_year" required>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+        <div class="form-group">
+            <label for="age_group">Age Group</label>
+            <select id="age_group" name="age_group" required>
+                <option value="14-18">14-18</option>
+                <option value="18-35">18-35</option>
+                <option value="35-60">35-60</option>
+                <option value="60+">60+</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="region">Region</label>
+            <select id="region" name="region" required>
+                <option value="South">South</option>
+                <option value="Far West">Far West</option>
+                <option value="Rocky Mountains">Rocky Mountains</option>
+                <option value="Northeast">Northeast</option>
+                <option value="Midwest">Midwest</option>
+                <option value="nan">N/A</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="is_weekend">Is Weekend</label>
+            <select id="is_weekend" name="is_weekend" required>
+                <option value='1'>Yes</option>
+                <option value='0'>No</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="day_period">Day Period</label>
+            <select id="day_period" name="day_period" required>
+                <option value="Morning">Morning</option>
+                <option value="Afternoon">Afternoon</option>
+                <option value="Evening">Evening</option>
+                <option value="Night">Night</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="trans_month">Transaction Month</label>
+            <select id="trans_month" name="trans_month" required>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="job_sector">Job Sector</label>
+            <select id="job_sector" name="job_sector" required>
+                <option value="Legal">Legal</option>
+                <option value="Education">Education</option>
+                <option value="Other">Other</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Finance">Finance</option>
+                <option value="IT">IT</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Retail">Retail</option>
+                <option value="Construction">Construction</option>
+            </select>
+        </div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% if messages[0] == 'fraud' %}
+                    <div class="alert warning">
+                        <span class="closebtn">&times;</span>  
+                        <strong>Warning!</strong> Its a fraud transaction.
+                    </div>                  
+                {% elif messages[0] == 'no fraud' %}
+                    <div class="alert success">
+                        <span class="closebtn">&times;</span>  
+                        <strong>Safe!</strong> It's not a fraud transaction.
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endwith %}
+        <script>
+            var close = document.getElementsByClassName("closebtn");
+            var i;
+
+            for (i = 0; i < close.length; i++) {
+            close[i].onclick = function(){
+                var div = this.parentElement;
+                div.style.opacity = "0";
+                setTimeout(function(){ div.style.display = "none"; }, 600);
+            }
+            }
+        </script>
+        <div class="button-container">
+            <button type="submit" class="submit-btn">Submit</button>
+        </div>
+    </form>    
+</div>
+</body>
+</html>

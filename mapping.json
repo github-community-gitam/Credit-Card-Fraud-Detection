@@ -1,0 +1,72 @@
+{
+  "category": {
+    "misc_net": 8,
+    "grocery_pos": 4,
+    "entertainment": 0,
+    "gas_transport": 2,
+    "misc_pos": 9,
+    "grocery_net": 3,
+    "shopping_net": 11,
+    "shopping_pos": 12,
+    "food_dining": 1,
+    "personal_care": 10,
+    "health_fitness": 5,
+    "travel": 13,
+    "kids_pets": 7,
+    "home": 6
+  },
+  "gender": {
+    "F": 0,
+    "M": 1
+  },
+  "region": {
+    "South": 4,
+    "Far West": 0,
+    "Rocky Mountains": 3,
+    "Northeast": 2,
+    "Midwest": 1,
+    "nan": 5
+  },
+  "trans_month": {
+    "January": 4,
+    "February": 3,
+    "March": 7,
+    "April": 0,
+    "May": 8,
+    "June": 6,
+    "July": 5,
+    "August": 1,
+    "September": 11,
+    "October": 10,
+    "November": 9,
+    "December": 2
+  },
+  "day_period": {
+    "Night": 3,
+    "Morning": 2,
+    "Afternoon": 0,
+    "Evening": 1
+  },
+  "trans_year": {
+    "2019": 0,
+    "2020": 1
+  },
+  "job_sector": {
+    "Legal": 5,
+    "Education": 1,
+    "Other": 8,
+    "Healthcare": 3,
+    "Manufacturing": 6,
+    "Finance": 2,
+    "IT": 4,
+    "Marketing": 7,
+    "Retail": 9,
+    "Construction": 0
+  },
+  "age_group": {
+    "18-35": 1,
+    "35-60": 2,
+    "60+": 3,
+    "14-18": 0
+  }
+}

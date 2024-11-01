@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="/static/signup.css">
+</head>
+<body>
+    <div class="container">
+        <div id="home"><a href="{{ url_for('home') }}">Home</a></div>
+        <img src="/static/signup-background2.png" class="background left-img">
+        <img src="/static/signup-background1.png" class="background right-img">
+        <div class="card">
+            <div class="card-image"></div>
+            <form class="card-form" action="/signup" method="POST">
+                <div class="input">
+                    <input type="text" id="name" class="input-field" name="name" required />
+                    <label class="input-label">Full Name</label>
+                </div>
+                <div class="input">
+                    <input type="email" id="mail" class="input-field" name="mail" required />
+                    <label class="input-label">Email</label>
+                </div>
+                <div class="input">
+                    <input type="password" id="password" class="input-field" name="password" required />
+                    <label class="input-label">Password</label>
+                </div>
+                <div class="input">
+                    <input type="password" id="confirm-password" class="input-field" name="confirm_password" required oninput="checkPasswordMatch()" />
+                    <label class="input-label">Confirm Password</label>
+                    <span id="password-error" style="color: red; display: none;">Passwords do not match.</span>
+                </div>
+                <div id="popup" class="popup">
+                    <div class="popup-content">
+                        <p id="popup-message"></p>
+                        <button onclick="closePopup()">OK</button>
+                    </div>
+                </div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <script>
+                            document.getElementById('popup-message').textContent = "{{ messages[0] }}";
+                            document.getElementById('popup').style.display = 'flex';
+
+                            function closePopup() {
+                                document.getElementById('popup').style.display = 'none';
+                            }
+                        </script>
+                    {% endif %}
+                {% endwith %}
+                <div class="action">
+                    <button type="submit" class="action-button">Sign Up</button>
+                </div>
+            </form>
+            <div class="card-info">
+                <p>By signing up you are agreeing to our <a href="#">Terms and Conditions</a></p>
+                <p>Already have an account? <a href="{{ url_for('login') }}" class="login-link">Log In</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    function checkPasswordMatch() {
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirm-password").value;
+        const errorMessage = document.getElementById("password-error");
+
+        if (password !== confirmPassword) {
+            errorMessage.style.display = "inline";
+        } else {
+            errorMessage.style.display = "none";
+        }
+    }
+</script>
+</html>
